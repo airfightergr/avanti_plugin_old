@@ -1,16 +1,10 @@
-// Downloaded from https://developer.x-plane.com/code-sample/register-custom-dataref-in-dataref-editor/
+/*
+Plugin for P-180 Avanti II for X-Plane
+ilias@tselios.com - All rights reserved - 2023.
 
+Scope to understand how work with c/c++ and produce a working plugin for X-Plane
 
-// Custom Commands
-
- // Register Custom DataRefs in DataRefEditor.
- //
- // This plugin adds a few lines of code and a flight loop callback to the Custom Commands Control
- // Custom DataRef example.  The flight loop callback sends the message to DataRefEditor to
- // register your custom dataref in DataRefEditor.  Returning 0 from the flight loop sends the message
- // only once.  A similar flight loop is required for each of you custom datarefs.
- //
- // Content added by BlueSideUpBob.
+*/
 
 //  #define XPLM400 = 1;  // This example requires SDK4.0
 
@@ -29,9 +23,9 @@
 #include <stdlib.h>
 #include <time.h>
 #include "units_conv.h"
-#include <../../mnt/5F839D945FF79065/X-Plane 12/Aircraft/X-Aviation/P180_Avanti_II/plugins/myavanti_plugin/SDK/CHeaders/XPLM/XPLMDataAccess.h>
-#include <../../mnt/5F839D945FF79065/X-Plane 12/Aircraft/X-Aviation/P180_Avanti_II/plugins/myavanti_plugin/SDK/CHeaders/XPLM/XPLMProcessing.h>
-#include <../../mnt/5F839D945FF79065/X-Plane 12/Aircraft/X-Aviation/P180_Avanti_II/plugins/myavanti_plugin/SDK/CHeaders/XPLM/XPLMPlugin.h>
+#include <../../mnt/5F839D945FF79065/X-Plane 12/Aircraft/X-Aviation/P180_Avanti_II/plugins/myavanti_plugin/avanti_plugin/SDK/CHeaders/XPLM/XPLMDataAccess.h>
+#include <../../mnt/5F839D945FF79065/X-Plane 12/Aircraft/X-Aviation/P180_Avanti_II/plugins/myavanti_plugin/avanti_plugin/SDK/CHeaders/XPLM/XPLMProcessing.h>
+#include <../../mnt/5F839D945FF79065/X-Plane 12/Aircraft/X-Aviation/P180_Avanti_II/plugins/myavanti_plugin/avanti_plugin/SDK/CHeaders/XPLM/XPLMPlugin.h>
  
 using namespace std;
 
