@@ -22,7 +22,7 @@ float pspeed;
 XPLMDataRef plt_airspeed_kmh = NULL;
 XPLMDataRef plt_airspeed_knots = NULL;
 
-    void units_conv_init()
+void units_conv_init()
     {
 
         plt_airspeed_kmh = XPLMRegisterDataAccessor("avanti/gauges/pilot/plt_airspeed_kmh",
@@ -53,6 +53,7 @@ XPLMDataRef plt_airspeed_knots = NULL;
         speedInKm = inValue;
     }
 
+    // run this function within the flight loop
     void units_conv_update()
     {
         float p_spd = XPLMGetDataf(plt_airspeed_knots);

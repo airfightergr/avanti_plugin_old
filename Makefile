@@ -1,4 +1,4 @@
-BUILDDIR	:=	../avanti
+BUILDDIR	:=	../../avanti
 SRC_BASE	:=	.
 TARGET		:= lin_x64
 
