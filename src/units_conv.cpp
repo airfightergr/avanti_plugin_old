@@ -13,6 +13,8 @@
 
 #define KNOTS_TO_KMH = 1.852;
 
+char log_buffer[256];
+
 float   get_plt_speed(void* inRefcon);
 void    set_plt_speed(void* inRefcon, float outValue);
 
@@ -39,7 +41,10 @@ void units_conv_init()
     plt_airspeed_knots = XPLMFindDataRef("sim/cockpit2/gauges/indicators/airspeed_kts_pilot");
     plt_airspeed_kmh = XPLMFindDataRef("avanti/gauges/pilot/plt_airspeed_kmh");
     pspeed = XPLMGetDataf(plt_airspeed_knots);
-    XPLMSetDataf(plt_airspeed_kmh, pspeed * 1.835);
+    XPLMSetDataf(plt_airspeed_kmh, pspeed * 1.852);
+
+    sprintf(log_buffer, "[P-180 Avanti II]: logging from 2nd file!\n");
+    XPLMDebugString(log_buffer);
 
     }
 
@@ -57,6 +62,6 @@ void units_conv_init()
     void units_conv_update()
     {
         float p_spd = XPLMGetDataf(plt_airspeed_knots);
-        float speed_conv = (p_spd * 1.835);
+        float speed_conv = (p_spd * 1.852);
         XPLMSetDataf(plt_airspeed_kmh, speed_conv);
     }
