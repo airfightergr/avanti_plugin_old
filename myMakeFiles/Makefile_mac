@@ -1,6 +1,7 @@
 BUILDDIR	:=	../../avanti
 SRC_BASE	:=	.
-TARGET		:= lin_x64
+TARGET		:= mac_x64
+
 
 SOURCES = \
 	src/avanti.cpp src/units_conv.cpp src/units_conv.h
@@ -43,11 +44,11 @@ CFLAGS := $(DEFINES) $(INCLUDES) -fPIC -fvisibility=hidden
 
 $(TARGET): $(BUILDDIR)/$(TARGET)/avanti.xpl
 
-
 $(BUILDDIR)/$(TARGET)/avanti.xpl: $(ALL_OBJECTS64)
 	@echo Linking $@
 	mkdir -p $(dir $@)
 	gcc -m64 -static-libgcc -shared -Wl,--version-script=exports.txt -o $@ $(ALL_OBJECTS64) $(LIBS)
+
 
 # Compiler rules
 
@@ -60,11 +61,6 @@ $(BUILDDIR)/obj64/%.o : %.c
 	mkdir -p $(dir $@)
 	g++ $(CFLAGS) -m64 -c $< -o $@
 	g++ $(CFLAGS) -MM -MT $@ -o $(@:.o=.cdep) $<
-
-$(BUILDDIR)/obj64/%.o : %.cpp
-	mkdir -p $(dir $@)
-	g++ $(CFLAGS) -m64 -c $< -o $@
-	g++ $(CFLAGS) -MM -MT $@ -o $(@:.o=.cppdep) $<
 
 clean:
 	@echo Cleaning out everything.

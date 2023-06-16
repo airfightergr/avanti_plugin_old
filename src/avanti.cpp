@@ -9,24 +9,24 @@ Scope to understand how work with c/c++ and produce a working plugin for X-Plane
 //  #define XPLM400 = 1;  // This example requires SDK4.0
 
 // #include "XPLMPlugin.h"
-#include "XPLMDisplay.h"
-#include "XPLMGraphics.h"
+//#include "XPLMDisplay.h"
+//#include "XPLMGraphics.h"
 // #include "XPLMProcessing.h"
-#include "XPLMDataAccess.h"
-#include "XPLMMenus.h"
-#include "XPLMUtilities.h"
+//#include "XPLMDataAccess.h"
+//#include "XPLMMenus.h"
+//#include "XPLMUtilities.h"
 // #include "XPLMWidgets.h"
-#include "XPStandardWidgets.h"
-#include "XPLMScenery.h"
+//#include "XPStandardWidgets.h"
+//#include "XPLMScenery.h"
 #include <string.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
 #include "units_conv.h"
 #include <../../mnt/5F839D945FF79065/X-Plane 12/Aircraft/X-Aviation/P180_Avanti_II/plugins/myavanti_plugin/avanti_plugin/SDK/CHeaders/XPLM/XPLMDataAccess.h>
 #include <../../mnt/5F839D945FF79065/X-Plane 12/Aircraft/X-Aviation/P180_Avanti_II/plugins/myavanti_plugin/avanti_plugin/SDK/CHeaders/XPLM/XPLMProcessing.h>
 #include <../../mnt/5F839D945FF79065/X-Plane 12/Aircraft/X-Aviation/P180_Avanti_II/plugins/myavanti_plugin/avanti_plugin/SDK/CHeaders/XPLM/XPLMPlugin.h>
- 
+#include <../../mnt/5F839D945FF79065/X-Plane 12/Aircraft/X-Aviation/P180_Avanti_II/plugins/myavanti_plugin/avanti_plugin/SDK/CHeaders/XPLM/XPLMUtilities.h>
+
 using namespace std;
 
 // using namespace units_conversion;
