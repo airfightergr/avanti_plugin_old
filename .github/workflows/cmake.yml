@@ -48,11 +48,11 @@ jobs:
       - name: Copy Artifact
         run: cp "src/build/mac_x64" avanti.xpl
       
-      - name: Zip Plugin 
-        uses: airfightergr/action-zip@v1
-        with:
-          files: "avanti.xpl"
-          dest: avanti-mac.zip
+#      - name: Zip Plugin
+#        uses: airfightergr/action-zip@v1
+#        with:
+#          files: "avanti.xpl"
+#          dest: avanti-mac.zip
         
         # OPTIONAL. I use the send mail extension to email the xpl (in a zip) direct to a slack channel as this is most convenient. 
 #      - name: Send mail
@@ -108,11 +108,11 @@ jobs:
       - name: Copy Artifact
         run: cp "src/build/win_x64/" avanti.xpl
     
-      - name: Zip Plugin
-        uses: TorqueSim/action-zip@v1
-        with:
-          files: "avanti.xpl"
-          dest: avanti_win.zip
+#      - name: Zip Plugin
+#        uses: airfightergr/action-zip@v1
+#        with:
+#          files: "avanti.xpl"
+#          dest: avanti_win.zip
     
 #      - name: Send mail
 #        uses: TorqueSim/action-send-mail@v3
