@@ -22,10 +22,10 @@ Scope to understand how work with c/c++ and produce a working plugin for X-Plane
 #include <stdio.h>
 #include <time.h>
 #include "units_conv.h"
-#include <XPLMDataAccess.h>
-#include <XPLMProcessing.h>
-#include <XPLMPlugin.h>
-#include <XPLMUtilities.h>
+#include "XPLMDataAccess.h"
+#include "XPLMProcessing.h"
+#include "XPLMPlugin.h"
+#include "XPLMUtilities.h"
 
 using namespace std;
 
