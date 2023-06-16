@@ -34,31 +34,6 @@ include_directories(
 add_library(avanti SHARED avanti.cpp units_conv.cpp units_conv.h)
 target_compile_options(avanti PUBLIC -Wall -Wextra )
 
-# X-Plane stuff
-if(APPLE)
-    find_library(XPLM_LIBRARY XPLM ${SDK_ROOT}/Libraries/Mac)
-    find_library(XPWIDGETS_LIBRARY XPWidgets ${SDK_ROOT}/Libraries/Mac/)
-    find_library(CocoaLib Cocoa)
-
-    target_link_libraries(avanti PUBLIC ${XPLM_LIBRARY})
-    target_link_libraries(avanti PUBLIC ${XPWIDGETS_LIBRARY})
-    target_link_libraries(avanti PUBLIC ${CocoaLib})
-elseif(WIN32)
-    set(CMAKE_LIBRARY_PATH ${SDK_ROOT}/Libraries/Win/)
-    find_library(XPLM_LIBRARY
-            NAMES XPLM_64
-            PATHS ${SDK_ROOT}/Libraries/Win/
-            NO_DEFAULT_PATH
-            NO_CMAKE_FIND_ROOT_PATH
-            )
-    find_library(XPWIDGETS_LIBRARY
-            XPWidgets_64
-            ${SDK_ROOT}/Libraries/Win/
-            NO_DEFAULT_PATH
-            NO_CMAKE_FIND_ROOT_PATH
-            )
-    target_link_libraries(avanti PUBLIC ${XPLM_LIBRARY} ${XPWIDGETS_LIBRARY})
-endif()
 
 
 set_target_properties(avanti PROPERTIES PREFIX "")
