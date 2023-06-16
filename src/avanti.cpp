@@ -8,24 +8,15 @@ Scope to understand how work with c/c++ and produce a working plugin for X-Plane
 
 //  #define XPLM400 = 1;  // This example requires SDK4.0
 
-// #include "XPLMPlugin.h"
-//#include "XPLMDisplay.h"
-//#include "XPLMGraphics.h"
-// #include "XPLMProcessing.h"
-//#include "XPLMDataAccess.h"
-//#include "XPLMMenus.h"
-//#include "XPLMUtilities.h"
-// #include "XPLMWidgets.h"
-//#include "XPStandardWidgets.h"
-//#include "XPLMScenery.h"
 #include <string.h>
 #include <stdio.h>
 #include <time.h>
 #include "units_conv.h"
-#include <XPLMDataAccess.h>
-#include <XPLMProcessing.h>
-#include <XPLMPlugin.h>
-#include <XPLMUtilities.h>
+#include "../SDK/CHeaders/XPLM/XPLMDataAccess.h"
+#include "../SDK/CHeaders/XPLM/XPLMProcessing.h"
+#include "../SDK/CHeaders/XPLM/XPLMPlugin.h"
+#include "../SDK/CHeaders/XPLM/XPLMUtilities.h"
+#include "../SDK/CHeaders/XPLM/XPLMDefs.h"
 
 using namespace std;
 
