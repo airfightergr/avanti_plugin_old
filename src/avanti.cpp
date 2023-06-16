@@ -74,7 +74,7 @@ PLUGIN_API int XPluginStart(
     time_t now = 0;
     tm *ltm = localtime(&now);
 
-    sprintf(myValue_buffer, "%d-%02d-%02d %02d:%02d:%02d [P-180 Avanti II]: Plugin loaded!\n", 1900 + ltm->tm_year, 1 + ltm->tm_mon, ltm->tm_mday, ltm->tm_hour, ltm->tm_min, ltm->tm_sec);
+    snprintf(myValue_buffer, 256, "%d-%02d-%02d %02d:%02d:%02d [P-180 Avanti II]: Plugin loaded!\n", 1900 + ltm->tm_year, 1 + ltm->tm_mon, ltm->tm_mday, ltm->tm_hour, ltm->tm_min, ltm->tm_sec);
     XPLMDebugString(myValue_buffer);
 
 //register the callback

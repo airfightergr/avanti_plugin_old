@@ -41,7 +41,7 @@ void units_conv_init()
     pspeed = XPLMGetDataf(plt_airspeed_knots);
     XPLMSetDataf(plt_airspeed_kmh, pspeed * 1.852);
 
-    sprintf(log_buffer, "[P-180 Avanti II]: logging from 2nd file!\n");
+    snprintf(log_buffer, 256, "[P-180 Avanti II]: logging from 2nd file!\n");
     XPLMDebugString(log_buffer);
 
     }
