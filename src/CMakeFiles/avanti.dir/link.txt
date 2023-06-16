@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -fno-stack-protector -fPIC -fvisibility=hidden -shared -Wl,-soname,avanti.xpl -o avanti/lin_x64/avanti.xpl CMakeFiles/avanti.dir/avanti.cpp.o CMakeFiles/avanti.dir/units_conv.cpp.o 

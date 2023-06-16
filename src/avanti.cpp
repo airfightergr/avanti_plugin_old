@@ -138,14 +138,6 @@ void setAltVal(void* inRefcon, float inValue)
     altInMetersValue = inValue;
 }
 
-// float calc_altimeter(float elapsedMe, float elapsedSim, int counter, void* refcon )
-// {
-//     float p_alt = XPLMGetDataf(pilotAltFeet);
-//     float alt_conv = (p_alt * 0.3048);
-//     XPLMSetDataf(altInMeters, alt_conv);
-//     return 1;
-// }
-
  //  This single shot FLCB registers our custom dataref in DRE
  float RegaltInMetersInDRE(float elapsedMe, float elapsedSim, int counter, void * refcon)
  {
