@@ -1,0 +1,3 @@
+/mnt/5F839D945FF79065/X-Plane 12/Aircraft/X-Aviation/P180_Avanti_II/plugins/myavanti_plugin/avanti_plugin/src/build/CMakeFiles/avanti.dir
+/mnt/5F839D945FF79065/X-Plane 12/Aircraft/X-Aviation/P180_Avanti_II/plugins/myavanti_plugin/avanti_plugin/src/build/CMakeFiles/edit_cache.dir
+/mnt/5F839D945FF79065/X-Plane 12/Aircraft/X-Aviation/P180_Avanti_II/plugins/myavanti_plugin/avanti_plugin/src/build/CMakeFiles/rebuild_cache.dir

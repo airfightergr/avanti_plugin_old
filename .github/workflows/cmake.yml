@@ -24,7 +24,7 @@ jobs:
           submodules: recursive
           
       - name: Configure CMake
-        run: cmake "path/to/folder/with/CMakeLists" # don't include CMakeLists.txt in the path itself.
+        run: cmake "src/" # don't include CMakeLists.txt in the path itself.
       
       - name: Build
         run: make -j3
@@ -32,43 +32,43 @@ jobs:
       - name: Save Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: name-you-want-mac-to-be-saved-as
-          path: Path/to/file.xpl
+          name: avanti.xpl
+          path: "src/build/"
           retention-days: 30
          
       - name: Copy Artifact
-        run: cp "Path/to/file.xpl" file.xpl
+        run: cp "src/build/mac_x64" avanti.xpl
       
       - name: Zip Plugin 
-        uses: TorqueSim/action-zip@v1
+        uses: airfightergr/action-zip@v1
         with:
-          files: "file.xpl"
-          dest: file-mac.zip
+          files: "avanti.xpl"
+          dest: avanti-mac.zip
         
         # OPTIONAL. I use the send mail extension to email the xpl (in a zip) direct to a slack channel as this is most convenient. 
-      - name: Send mail
-        uses: TorqueSim/action-send-mail@v3
-        with:
-          # Required mail server address:
-          server_address: SMTP server
-          # Required mail server port:
-          server_port: 465
-          # Optional (recommended): mail server username:
-          username: ${{secrets.SET_YOUR_SMTP_USER}}
-          # Optional (recommended) mail server password:
-          password: ${{secrets.SET_YOUR_SMTP_PASS}}
-          # Required mail subject:
-          subject: YOUR SUBJECT Mac Build
-          # Required recipients' addresses:
-          to: email@email.com
-          # Required sender full name (address can be skipped):
-          from: GitHub Actions  <FROM@FROM.com> # your from email in <>
-          # Optional whether this connection use TLS (default is true if server_port is 465)
-          secure: true
-          # Optional plain body:
-          body: Build job of ${{github.repository}} completed successfully!
-          # Optional attachments:
-          attachments: file-mac.zip
+#      - name: Send mail
+#        uses: TorqueSim/action-send-mail@v3
+#        with:
+#          # Required mail server address:
+#          server_address: SMTP server
+#          # Required mail server port:
+#          server_port: 465
+#          # Optional (recommended): mail server username:
+#          username: ${{secrets.SET_YOUR_SMTP_USER}}
+#          # Optional (recommended) mail server password:
+#          password: ${{secrets.SET_YOUR_SMTP_PASS}}
+#          # Required mail subject:
+#          subject: YOUR SUBJECT Mac Build
+#          # Required recipients' addresses:
+#          to: email@email.com
+#          # Required sender full name (address can be skipped):
+#          from: GitHub Actions  <FROM@FROM.com> # your from email in <>
+#          # Optional whether this connection use TLS (default is true if server_port is 465)
+#          secure: true
+#          # Optional plain body:
+#          body: Build job of ${{github.repository}} completed successfully!
+#          # Optional attachments:
+#          attachments: file-mac.zip
         
   build-win:
     runs-on: windows-2022
@@ -83,7 +83,7 @@ jobs:
           
       - name: Configure CMake
         # Configure CMake in a 'build' subdirectory.
-        run: cmake "path/to/folder/with/CMakeLists" -G "Visual Studio 17 2022"
+        run: cmake "src/" -G "Visual Studio 17 2022"
     
       - name: Build
         # Build your program with the given configuration
@@ -92,39 +92,39 @@ jobs:
       - name: Save Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: win-name.xpl
-          path: "Path/to/windows.xpl"
+          name: avanti.xpl
+          path: "src/build/win_x64/"
           retention-days: 30
     
       - name: Copy Artifact
-        run: cp "Path/to/windows.xpl" file.xpl
+        run: cp "src/build/win_x64/" avanti.xpl
     
       - name: Zip Plugin
         uses: TorqueSim/action-zip@v1
         with:
-          files: "file.xpl"
-          dest: file_win.zip
+          files: "avanti.xpl"
+          dest: avanti_win.zip
     
-      - name: Send mail
-        uses: TorqueSim/action-send-mail@v3
-        with:
-          # Required mail server address:
-          server_address: SMTP SERVER.com
-          # Required mail server port:
-          server_port: 465
-          # Optional (recommended): mail server username:
-          username: ${{secrets.YOURS_SMTP_USER}}
-          # Optional (recommended) mail server password:
-          password: ${{secrets.YOUR_SMTP_PASS}}
-          # Required mail subject:
-          subject: YOUR SUBJECT Windows Build
-          # Required recipients' addresses:
-          to: email@email.com
-          # Required sender full name (address can be skipped):
-          from: GitHub Actions  <youremail@from.com> #
-          # Optional whether this connection use TLS (default is true if server_port is 465)
-          secure: true
-          # Optional plain body:
-          body: Build job of ${{github.repository}} completed successfully!
-          # Optional attachments:
-          attachments: file_win.zip
+#      - name: Send mail
+#        uses: TorqueSim/action-send-mail@v3
+#        with:
+#          # Required mail server address:
+#          server_address: SMTP SERVER.com
+#          # Required mail server port:
+#          server_port: 465
+#          # Optional (recommended): mail server username:
+#          username: ${{secrets.YOURS_SMTP_USER}}
+#          # Optional (recommended) mail server password:
+#          password: ${{secrets.YOUR_SMTP_PASS}}
+#          # Required mail subject:
+#          subject: YOUR SUBJECT Windows Build
+#          # Required recipients' addresses:
+#          to: email@email.com
+#          # Required sender full name (address can be skipped):
+#          from: GitHub Actions  <youremail@from.com> #
+#          # Optional whether this connection use TLS (default is true if server_port is 465)
+#          secure: true
+#          # Optional plain body:
+#          body: Build job of ${{github.repository}} completed successfully!
+#          # Optional attachments:
+#          attachments: file_win.zip
