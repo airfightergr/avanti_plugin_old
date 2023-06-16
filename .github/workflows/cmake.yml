@@ -6,7 +6,13 @@ on:
   pull_request:
     branches: [ dev ]
   workflow_dispatch:
-
+    inputs:
+      loglevel:
+        description: "Log Level"
+        required: true
+        default: "warning"
+      tags:
+        description: "Test Scenario tags"
 
 
 env:
