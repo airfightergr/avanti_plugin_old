@@ -11,8 +11,7 @@ on:
         description: "Log Level"
         required: true
         default: "warning"
-      tags:
-        description: "Test Scenario tags"
+
 
 
 env:
