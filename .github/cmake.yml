@@ -11,7 +11,7 @@ env:
   BUILD_TYPE: Release
 
 jobs:
-  
+  #mac
   build-mac:
     runs-on: macos-latest
     
@@ -69,7 +69,8 @@ jobs:
 #          body: Build job of ${{github.repository}} completed successfully!
 #          # Optional attachments:
 #          attachments: file-mac.zip
-        
+
+  #win
   build-win:
     runs-on: windows-2022
     
