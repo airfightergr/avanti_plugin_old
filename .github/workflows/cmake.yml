@@ -27,10 +27,10 @@ jobs:
     steps:    
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          # Save a repository or organization secret with the personal access token, if you have submodules in your git repo. Here the PAT is named "LIB_PAT"
-          token: ${{ secrets.LIB_PAT }}
-          submodules: recursive
+#        with:
+#          # Save a repository or organization secret with the personal access token, if you have submodules in your git repo. Here the PAT is named "LIB_PAT"
+#          token: ${{ secrets.LIB_PAT }}
+#          submodules: recursive
           
       - name: Configure CMake
         run: cmake "src/" # don't include CMakeLists.txt in the path itself.
@@ -86,9 +86,9 @@ jobs:
       
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.LIB_PAT }}
-          submodules: recursive
+#        with:
+#          token: ${{ secrets.LIB_PAT }}
+#          submodules: recursive
           
       - name: Configure CMake
         # Configure CMake in a 'build' subdirectory.
