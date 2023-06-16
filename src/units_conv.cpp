@@ -4,10 +4,10 @@
 #include <stdio.h>
 #include <time.h>
 #include "units_conv.h"
-#include <../../mnt/5F839D945FF79065/X-Plane 12/Aircraft/X-Aviation/P180_Avanti_II/plugins/myavanti_plugin/avanti_plugin/SDK/CHeaders/XPLM/XPLMDataAccess.h>
-#include <../../mnt/5F839D945FF79065/X-Plane 12/Aircraft/X-Aviation/P180_Avanti_II/plugins/myavanti_plugin/avanti_plugin/SDK/CHeaders/XPLM/XPLMProcessing.h>
-#include <../../mnt/5F839D945FF79065/X-Plane 12/Aircraft/X-Aviation/P180_Avanti_II/plugins/myavanti_plugin/avanti_plugin/SDK/CHeaders/XPLM/XPLMPlugin.h>
-#include <../../mnt/5F839D945FF79065/X-Plane 12/Aircraft/X-Aviation/P180_Avanti_II/plugins/myavanti_plugin/avanti_plugin/SDK/CHeaders/XPLM/XPLMUtilities.h>
+#include <XPLMDataAccess.h>
+#include <XPLMProcessing.h>
+#include <XPLMPlugin.h>
+#include <XPLMUtilities.h>
 
 #define KNOTS_TO_KMH = 1.852;
 
