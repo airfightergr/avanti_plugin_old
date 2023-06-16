@@ -128,3 +128,5 @@ jobs:
 #          body: Build job of ${{github.repository}} completed successfully!
 #          # Optional attachments:
 #          attachments: file_win.zip
+
+#eof
