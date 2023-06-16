@@ -9,7 +9,7 @@ on:
     inputs:
       loglevel:
         description: "Log Level"
-        required: true
+        required: false
         default: "warning"
 
 
