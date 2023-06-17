@@ -19,12 +19,22 @@ include_directories(
         "${SDK_ROOT}/CHeaders/Widgets"
 )
 
+# Find libraries for WIN and MAC
+if(WIN32)
+    find_library(XPLM_LIBRARY XPLM_64 "${SDK_ROOT}/Libraries/Win")
+elseif(APPLE)
+    find_library(XPLM_LIBRARY XPLM_64 "${SDK_ROOT}/Libraries/Mac")
+else()
+    set(XPLM_LIBRARY "")
+endif()
+
 add_library(avanti SHARED ${SRC})
 target_compile_options(avanti PUBLIC -Wall -Wextra )
 
 
 
 if(APPLE)
+    set(CMAKE_OSX_DEPLOYMENT_TARGET "13.0")
     set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build architectures for Mac OS X" FORCE)
     add_definitions(-DAPL=1 -DIBM=0 -DLIN=0)
     set(ARCH "mac64")
@@ -54,9 +64,11 @@ set(PLUGIN_BUILD_DIR "${PROJECT_SOURCE_DIR}/avanti")
 if(WIN32)
     set_target_properties(avanti PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${PLUGIN_BUILD_DIR}/win_x64")
     set_target_properties(avanti PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${PLUGIN_BUILD_DIR}/win_x64")
+    target_link_libraries(avanti ${XPLM_LIBRARY})
 elseif(APPLE)
     set_target_properties(avanti PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${PLUGIN_BUILD_DIR}/mac_x64")
     set_target_properties(avanti PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${PLUGIN_BUILD_DIR}/mac_x64")
+    target_link_libraries(avanti ${XPLM_LIBRARY})
 else()
     set_target_properties(avanti PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${PLUGIN_BUILD_DIR}/lin_x64")
     set_target_properties(avanti PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${PLUGIN_BUILD_DIR}/lin_x64")
