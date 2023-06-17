@@ -31,6 +31,7 @@ endif()
 add_library(avanti SHARED ${SRC})
 target_compile_options(avanti PUBLIC -Wall -Wextra )
 
+message("LIBS: ${SDK_ROOT}/Libraries/Mac")
 
 if(APPLE)
     set(CMAKE_OSX_DEPLOYMENT_TARGET "13.0")
