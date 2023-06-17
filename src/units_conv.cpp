@@ -1,5 +1,13 @@
 /*units conversion file*/
 
+#if APL
+#if defined(_MACH_)
+#include <Carbon/Carbon.h>
+#endif
+#endif
+#if IBM
+#include <windows.h>
+#endif
 #include <string.h>
 #include <stdio.h>
 #include <time.h>
@@ -21,6 +29,7 @@ float pspeed;
     
 XPLMDataRef plt_airspeed_kmh = NULL;
 XPLMDataRef plt_airspeed_knots = NULL;
+
 
 void units_conv_init()
     {

@@ -6,6 +6,24 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_definitions(-DXPLM200=1 -DXPLM210=1 -DXPLM300=1 -DXPLM301=1 -DXPLM400=1)
 
+# Our source files
+set(SRC
+        avanti.cpp
+        units_conv.cpp
+        units_conv.h)
+
+set(SDK_ROOT "${PROJECT_SOURCE_DIR}/SDK")
+include_directories(
+        "${SDK_ROOT}/CHeaders/XPLM"
+        "${SDK_ROOT}/CHeaders/Wrappers"
+        "${SDK_ROOT}/CHeaders/Widgets"
+)
+
+add_library(avanti SHARED ${SRC})
+target_compile_options(avanti PUBLIC -Wall -Wextra )
+
+
+
 if(APPLE)
     set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build architectures for Mac OS X" FORCE)
     add_definitions(-DAPL=1 -DIBM=0 -DLIN=0)
@@ -24,15 +42,6 @@ else()
     set(ARCH "lin64")
 endif()
 
-set(SDK_ROOT "${PROJECT_SOURCE_DIR}/SDK")
-include_directories(
-        "${SDK_ROOT}/CHeaders/XPLM"
-        "${SDK_ROOT}/CHeaders/Wrappers"
-        "${SDK_ROOT}/CHeaders/Widgets"
-)
-
-add_library(avanti SHARED avanti.cpp units_conv.cpp units_conv.h)
-target_compile_options(avanti PUBLIC -Wall -Wextra )
 
 
 

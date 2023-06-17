@@ -7,7 +7,14 @@ Scope to understand how work with c/c++ and produce a working plugin for X-Plane
 */
 
 //  #define XPLM400 = 1;  // This example requires SDK4.0
-
+#if APL
+#if defined(_MACH_)
+#include <Carbon/Carbon.h>
+#endif
+#endif
+#if IBM
+#include <windows.h>
+#endif
 #include <string.h>
 #include <stdio.h>
 #include <time.h>
@@ -18,18 +25,18 @@ Scope to understand how work with c/c++ and produce a working plugin for X-Plane
 #include "../SDK/CHeaders/XPLM/XPLMUtilities.h"
 #include "../SDK/CHeaders/XPLM/XPLMDefs.h"
 
-using namespace std;
-
-// using namespace units_conversion;
-
+// Log buffer
 char myValue_buffer[256];
 
-#define MSG_ADD_DATAREF 0x01000000           //  Add dataref to DRE message
+//  Add dataref to DRE message
+#define MSG_ADD_DATAREF 0x01000000
 
-static XPLMDataRef altInMeters = NULL;          //  Our custom dataref
+//  Our custom dataref
+static XPLMDataRef altInMeters = NULL;
 static XPLMDataRef pilotAltFeet = NULL;
 
-float   altInMetersValue;                       //  Our custom dataref's value
+//  Our custom dataref's value
+float   altInMetersValue;
 float   altInFeet;
 
 // float   calc_altimeter(float elapsedMe, float elapsedSim, int counter, void* refcon );
