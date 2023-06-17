@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 project(avanti VERSION 1.0.0)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_definitions(-DXPLM200=1 -DXPLM210=1 -DXPLM300=1 -DXPLM301=1 -DXPLM400=1)
@@ -32,7 +32,6 @@ endif()
 add_library(avanti SHARED ${SRC})
 target_compile_options(avanti PUBLIC -Wall -Wextra )
 
-message("LIBS: ${SDK_ROOT}/Libraries/Mac")
 
 if(APPLE)
     set(CMAKE_OSX_DEPLOYMENT_TARGET "13.0")
