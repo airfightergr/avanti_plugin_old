@@ -32,7 +32,6 @@ add_library(avanti SHARED ${SRC})
 target_compile_options(avanti PUBLIC -Wall -Wextra )
 
 
-
 if(APPLE)
     set(CMAKE_OSX_DEPLOYMENT_TARGET "13.0")
     set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build architectures for Mac OS X" FORCE)
@@ -52,8 +51,7 @@ else()
     set(ARCH "lin64")
 endif()
 
-
-
+target_link_libraries(avanti ${XPLM_LIBRARY})
 
 set_target_properties(avanti PROPERTIES PREFIX "")
 set_target_properties(avanti PROPERTIES SUFFIX "")
@@ -64,11 +62,9 @@ set(PLUGIN_BUILD_DIR "${PROJECT_SOURCE_DIR}/avanti")
 if(WIN32)
     set_target_properties(avanti PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${PLUGIN_BUILD_DIR}/win_x64")
     set_target_properties(avanti PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${PLUGIN_BUILD_DIR}/win_x64")
-    target_link_libraries(avanti ${XPLM_LIBRARY})
 elseif(APPLE)
     set_target_properties(avanti PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${PLUGIN_BUILD_DIR}/mac_x64")
     set_target_properties(avanti PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${PLUGIN_BUILD_DIR}/mac_x64")
-    target_link_libraries(avanti ${XPLM_LIBRARY})
 else()
     set_target_properties(avanti PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${PLUGIN_BUILD_DIR}/lin_x64")
     set_target_properties(avanti PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${PLUGIN_BUILD_DIR}/lin_x64")
