@@ -10,7 +10,7 @@ add_definitions(-DXPLM200=1 -DXPLM210=1 -DXPLM300=1 -DXPLM301=1 -DXPLM400=1)
 set(SRC
         avanti.cpp
         units_conv.cpp
-        units_conv.h)
+        units_conv.h
     )
 
 set(SDK_ROOT "${PROJECT_SOURCE_DIR}/SDK")
