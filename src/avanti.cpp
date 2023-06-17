@@ -18,7 +18,7 @@ Scope to understand how work with c/c++ and produce a working plugin for X-Plane
 #include <string.h>
 #include <stdio.h>
 #include <time.h>
-#include "units_conv.h"
+//#include "units_conv.h"
 #include "../SDK/CHeaders/XPLM/XPLMDataAccess.h"
 #include "../SDK/CHeaders/XPLM/XPLMProcessing.h"
 #include "../SDK/CHeaders/XPLM/XPLMPlugin.h"
@@ -89,7 +89,7 @@ XPLMRegisterFlightLoopCallback(RegaltInMetersInDRE, 1, NULL);   // This FLCB wil
 // XPLMRegisterFlightLoopCallback(calc_altimeter, 1, NULL);  
 XPLMPluginID PluginID = XPLMFindPluginBySignature("xplanesdk.examples.DataRefEditor");
 
-units_conv_init();
+//units_conv_init();
 
 if (PluginID != XPLM_NO_PLUGIN_ID)
 {
@@ -143,7 +143,7 @@ void setAltVal(void* inRefcon, float inValue)
     float alt_conv = (p_alt * 0.3048);
     XPLMSetDataf(altInMeters, alt_conv);
     
-    units_conv_update();
+//    units_conv_update();
 
      return 0.1f;
 
