@@ -11,6 +11,7 @@ set(SRC
         avanti.cpp
         #units_conv.cpp
         #units_conv.h)
+    )
 
 set(SDK_ROOT "${PROJECT_SOURCE_DIR}/SDK")
 include_directories(
