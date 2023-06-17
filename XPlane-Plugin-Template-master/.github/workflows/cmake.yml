@@ -5,23 +5,31 @@ on:
     branches: [ dev ]
   pull_request:
     branches: [ dev ]
+  workflow_dispatch:
+    inputs:
+      loglevel:
+        description: "Log Level"
+        required: false
+        default: "warning"
+
+
 
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: Release
 
 jobs:
-  #mac
+  
   build-mac:
     runs-on: macos-latest
     
     steps:    
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          # Save a repository or organization secret with the personal access token, if you have submodules in your git repo. Here the PAT is named "LIB_PAT"
-          token: ${{ secrets.LIB_PAT }}
-          submodules: recursive
+#        with:
+#          # Save a repository or organization secret with the personal access token, if you have submodules in your git repo. Here the PAT is named "LIB_PAT"
+#          token: ${{ secrets.LIB_PAT }}
+#          submodules: recursive
           
       - name: Configure CMake
         run: cmake "src/" # don't include CMakeLists.txt in the path itself.
@@ -39,11 +47,11 @@ jobs:
       - name: Copy Artifact
         run: cp "src/build/mac_x64" avanti.xpl
       
-      - name: Zip Plugin 
-        uses: airfightergr/action-zip@v1
-        with:
-          files: "avanti.xpl"
-          dest: avanti-mac.zip
+#      - name: Zip Plugin
+#        uses: airfightergr/action-zip@v1
+#        with:
+#          files: "avanti.xpl"
+#          dest: avanti-mac.zip
         
         # OPTIONAL. I use the send mail extension to email the xpl (in a zip) direct to a slack channel as this is most convenient. 
 #      - name: Send mail
@@ -69,8 +77,7 @@ jobs:
 #          body: Build job of ${{github.repository}} completed successfully!
 #          # Optional attachments:
 #          attachments: file-mac.zip
-
-  #win
+        
   build-win:
     runs-on: windows-2022
     
@@ -78,9 +85,9 @@ jobs:
       
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.LIB_PAT }}
-          submodules: recursive
+#        with:
+#          token: ${{ secrets.LIB_PAT }}
+#          submodules: recursive
           
       - name: Configure CMake
         # Configure CMake in a 'build' subdirectory.
@@ -100,11 +107,11 @@ jobs:
       - name: Copy Artifact
         run: cp "src/build/win_x64/" avanti.xpl
     
-      - name: Zip Plugin
-        uses: TorqueSim/action-zip@v1
-        with:
-          files: "avanti.xpl"
-          dest: avanti_win.zip
+#      - name: Zip Plugin
+#        uses: airfightergr/action-zip@v1
+#        with:
+#          files: "avanti.xpl"
+#          dest: avanti_win.zip
     
 #      - name: Send mail
 #        uses: TorqueSim/action-send-mail@v3
@@ -129,5 +136,4 @@ jobs:
 #          body: Build job of ${{github.repository}} completed successfully!
 #          # Optional attachments:
 #          attachments: file_win.zip
-
 #eof
