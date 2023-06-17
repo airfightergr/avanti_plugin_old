@@ -21,9 +21,9 @@ include_directories(
 
 # Find libraries for WIN and MAC
 if(WIN32)
-    find_library(XPLM_LIBRARY XPLM_64 "${SDK_ROOT}/Libraries/Win")
+    set(XPLM_LIBRARY "${SDK_ROOT}/Libraries/Win")
 elseif(APPLE)
-    find_library(XPLM_LIBRARY XPLM_64 "${SDK_ROOT}/Libraries/Mac")
+    set(XPLM_LIBRARY "${SDK_ROOT}/Libraries/Mac")
 else()
     set(XPLM_LIBRARY "")
 endif()
